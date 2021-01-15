@@ -1,0 +1,35 @@
+{
+  "Main" : {
+    "uid" : {
+      "type" : "UID",
+      "config" : {
+        "placeholder" : "meaningful-unique-identifier...",
+        "label" : "Unique ID"
+      }
+    },
+    "body" : {
+      "type" : "Slices",
+      "fieldset" : "Slice zone",
+      "config" : {
+        "labels" : { },
+        "choices" : {
+          "full_image_caption" : {
+            "type" : "SharedSlice"
+          },
+          "image_gallery" : {
+            "type" : "SharedSlice"
+          },
+          "image_highlight" : {
+            "type" : "SharedSlice"
+          },
+          "quote_slice" : {
+            "type" : "SharedSlice"
+          },
+          "text_slice" : {
+            "type" : "SharedSlice"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "Main" : {
+    "homepage_banner" : {
+      "type" : "Group",
+      "config" : {
+        "fields" : {
+          "title" : {
+            "type" : "StructuredText",
+            "config" : {
+              "single" : "heading2",
+              "label" : "Banner Title",
+              "placeholder" : "Site Title..."
+            }
+          },
+          "tagline" : {
+            "type" : "StructuredText",
+            "config" : {
+              "single" : "paragraph",
+              "label" : "Tagline",
+              "placeholder" : "Site Tagline..."
+            }
+          },
+          "button_link" : {
+            "type" : "Link",
+            "config" : {
+              "label" : "Button Link"
+            }
+          },
+          "image" : {
+            "type" : "Image",
+            "config" : {
+              "constraint" : {
+                "width" : 2000,
+                "height" : null
+              },
+              "thumbnails" : [ ],
+              "label" : "Banner Image"
+            }
+          },
+          "button_label" : {
+            "type" : "StructuredText",
+            "config" : {
+              "single" : "paragraph",
+              "label" : "Button Label"
+            }
+          }
+        },
+        "label" : "Homepage Banner",
+        "repeat" : false
+      }
+    },
+    "body" : {
+      "type" : "Slices",
+      "fieldset" : "Slice zone",
+      "config" : {
+        "labels" : { },
+        "choices" : {
+          "full_image_caption" : {
+            "type" : "SharedSlice"
+          },
+          "image_gallery" : {
+            "type" : "SharedSlice"
+          },
+          "image_highlight" : {
+            "type" : "SharedSlice"
+          },
+          "text_slice" : {
+            "type" : "SharedSlice"
+          },
+          "quote_slice" : {
+            "type" : "SharedSlice"
+          }
+        }
+      }
+    }
+  }
+}
