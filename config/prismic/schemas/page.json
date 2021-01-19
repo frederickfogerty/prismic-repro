@@ -1,35 +1,141 @@
 {
-  "Main" : {
-    "uid" : {
-      "type" : "UID",
-      "config" : {
-        "placeholder" : "meaningful-unique-identifier...",
-        "label" : "Unique ID"
+  "Main": {
+    "title": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1",
+        "label": "Title",
+        "placeholder": "Name of the page"
       }
     },
-    "body" : {
-      "type" : "Slices",
-      "fieldset" : "Slice zone",
-      "config" : {
-        "labels" : { },
-        "choices" : {
-          "full_image_caption" : {
-            "type" : "SharedSlice"
+    "uid": {
+      "type": "UID",
+      "config": {
+        "label": "UID",
+        "placeholder": "Unique identifier for the URL"
+      }
+    },
+    "parent": {
+      "type": "Link",
+      "config": {
+        "select": "document",
+        "customtypes": ["page"],
+        "label": "Parent",
+        "placeholder": "Optional - Parent of the page"
+      }
+    },
+    "meta_title": {
+      "type": "Text",
+      "config": {
+        "label": "Meta Title",
+        "placeholder": "Optional - Override the publicly viewable page title"
+      }
+    },
+    "meta_description": {
+      "type": "Text",
+      "config": {
+        "label": "Meta Description",
+        "placeholder": "Optional - One sentence description of the page's content"
+      }
+    },
+    "redirect_to": {
+      "type": "Link",
+      "config": {
+        "label": "Redirect To",
+        "placeholder": "Optional - Redirect this page to another page or external URL"
+      }
+    },
+    "redirect_is_permanent": {
+      "type": "Boolean",
+      "config": {
+        "placeholder_false": "No",
+        "placeholder_true": "Yes, redirect forever",
+        "default_value": false,
+        "label": "Redirect Is Permanent"
+      }
+    }
+  },
+  "Body": {
+    "body": {
+      "type": "Slices",
+      "fieldset": "Slice zone",
+      "config": {
+        "labels": {
+          "images": [],
+          "text": [],
+          "embed": [],
+          "text_and_image": [],
+          "anchor": []
+        },
+        "choices": {
+          "text": {
+            "type": "Slice",
+            "fieldset": "Text",
+            "description": "Rich text with headings and links",
+            "icon": "text_fields",
+            "display": "list",
+            "non-repeat": {
+              "text": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph, heading1, strong, em, hyperlink, embed, list-item, o-list-item, o-list-item",
+                  "allowTargetBlank": true,
+                  "label": "Text",
+                  "placeholder": "Text with formatting and rich content"
+                }
+              }
+            },
+            "repeat": {}
           },
-          "image_gallery" : {
-            "type" : "SharedSlice"
+          "images": {
+            "type": "Slice",
+            "fieldset": "Images",
+            "description": "One or more images with optional captions",
+            "icon": "burst_mode",
+            "display": "grid",
+            "non-repeat": {},
+            "repeat": {
+              "image": {
+                "type": "Image",
+                "config": {
+                  "constraint": {
+                    "width": 2000
+                  },
+                  "thumbnails": [],
+                  "label": "Image"
+                }
+              },
+              "caption": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "paragraph",
+                  "label": "Caption",
+                  "placeholder": "Optional - Caption below image"
+                }
+              }
+            }
           },
-          "image_highlight" : {
-            "type" : "SharedSlice"
-          },
-          "quote_slice" : {
-            "type" : "SharedSlice"
-          },
-          "text_slice" : {
-            "type" : "SharedSlice"
+          "anchor": {
+            "type": "Slice",
+            "fieldset": "Anchor",
+            "description": "Page marker to jump a user down the page",
+            "icon": "vertical_align_center",
+            "display": "list",
+            "non-repeat": {
+              "id": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "paragraph",
+                  "label": "ID",
+                  "placeholder": "Text used in anchor link"
+                }
+              }
+            },
+            "repeat": {}
           }
         }
       }
     }
   }
 }
+

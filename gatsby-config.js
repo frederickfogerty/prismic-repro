@@ -36,8 +36,6 @@ module.exports = {
 
         schemas: {
           page: require("./config/prismic/schemas/page.json"),
-          menu: require("./config/prismic/schemas/menu.json"),
-          homepage: require("./config/prismic/schemas/page.json"),
         },
 
         imageImgixParams: {
